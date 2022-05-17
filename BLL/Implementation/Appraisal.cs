@@ -23,7 +23,21 @@ namespace BLL.Implementation
         /// <returns></returns>
         public Task<bool> Store(CodingExamXML model)
         {
-            DAL.Entities.Appraisal entity = new DAL.Entities.Appraisal { AppraisalID = model.OrderID, BranchId = model.BranchId };
+            DAL.Entities.Appraisal entity = new DAL.Entities.Appraisal
+            {
+                AppraisalID = model.OrderID,
+                BranchId = model.BranchId,
+                AppraisalCheck = model.AppraisalCheck,
+                AppraisalTimeRequest = model.AppraisalTimeRequest,
+                EntryContactName = model.EntryContactName,
+                EntryContactPhone = model.EntryContactPhone,
+                LenderLoanNumber = model.LenderLoanNumber,
+                LoanType = model.LoanType,
+                PropertyAddress = model.PropertyAddress,
+                PropertyInfo = model.PropertyInfo,
+                PropertyZip = model.PropertyZip,
+                RepresentativeId = model.UserId
+            };
             return _bllAppraisal.Store(entity);
         }
     }
